@@ -29,7 +29,9 @@ const ImagePicker = (props) => {
             aspect: [16, 9],
             quality: 0.5
         });
-        setPickedImage(image['assets'][0]["uri"]);
+        let uri = image['assets'][0]["uri"];
+        setPickedImage(uri);
+        props.onTakeImage(uri);
     }
     let imagePreview = <Text>No Image taken yet.</Text>
     if (pickedImage) {
